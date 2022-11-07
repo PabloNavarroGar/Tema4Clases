@@ -17,16 +17,35 @@ public class usuariosYcontrasenas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       String opcion="";
+        //variables para conectar los metodos
+        String opcion = "";
+        String pin = "";
+        String pass = "";
+        int pass2=0;
+        do {
 
-          do{
-              
-              opcion=pedirNumeroOpcion();
-              
-              
-              
-          }while(!opcion.equalsIgnoreCase("4"));
+            opcion = pedirNumeroOpcion();
 
+            switch (opcion) {
+                case "1":
+                    pin = generarPinAleatorio(pin);
+
+                    System.out.println("-------------------");
+                    break;
+                case "2":
+                    pass = contrasenaOchoDigitos(pass);
+
+                    System.out.println("-------------------");
+                    break;
+                case "3":
+                    pass2 = contrasenaFuerte(pass2);
+
+                    System.out.println("-------------------");
+                    break;
+
+            }
+
+        } while (!opcion.equalsIgnoreCase("4"));
 
     }
 
@@ -34,17 +53,20 @@ public class usuariosYcontrasenas {
         String texto = """
                        Generator 3000 de contraseñas
                        ------------------------------
-                       Escriba que tipo de contraseña 
+                       Seleccione el numero de Opcion que quiere realizar
+                       __________________________________________________
+                       
                            ¿Que quiere hacer?
-                                           
-                       ------------------------------------
-                         1.Crear un pin para un movil
-                       ------------------------------------
-                         2.Crear  contraseñas con 8 caracteres
-                       ------------------------------------
-                         3.Crear 6 contraseñas con signos  
-                       ------------------------------------                     
-                         4.Salir para terminar el programa
+                       __________________________________________________                    
+                       ----------------------------------------
+                         [1]Crear un pin para un movil
+                       ----------------------------------------
+                         [2]Crear  contraseñas con 8 caracteres
+                       ----------------------------------------
+                         [3]Crear contraseñas con hasta 10 caracteres  
+                       ----------------------------------------                     
+                         [4]Salir para terminar el programa
+                       ----------------------------------------
                        """;
         String opcion = JOptionPane.showInputDialog(texto);
         return opcion;
@@ -59,41 +81,50 @@ public class usuariosYcontrasenas {
     }
 
     public static boolean esCodigoProductoValido(String codigo) {
-    
+
         return (codigo.equalsIgnoreCase("1") || codigo.equalsIgnoreCase("2")
                 || codigo.equalsIgnoreCase("3") || codigo.equalsIgnoreCase("4"));
     }
 
-    
-    
-    //        for (int i = 0; i < 10; i++) {
-//             String pin = RandomStringUtils.randomNumeric(4);
-//        
-//                System.out.println(pin);
-//        }
-//        
-//        
-//        
-//        
-//        System.out.println("-----------------------");
-//        
-//        //Opcion 2---Pass con letras de 8 
-//        for (int i = 0; i < 10; i++) {
-//            
-//            String pass = RandomStringUtils.randomAlphabetic(8);
-//            
-//            System.out.println(pass);
-//            
-//        }
-//        
-//         System.out.println("-----------------------");
-//        //Opcion 3
-//        char [] conjuntoCaracteres = { 'a','z','b','y','Ç'};
-//        //Si quiero que salga 6 vee spoenmos la variable, si el count lo cambiamos a "i", sale de 1 hasta 6
-//        int numero = 6;
-//        for (int i = 0; i < 10; i++) {
-//             String password = RandomStringUtils.random(i,conjuntoCaracteres);
-//        
-//                System.out.println(password);
-//        }
+    public static String generarPinAleatorio(String numero) {
+
+        for (int i = 0; i < 10; i++) {
+            String pin = RandomStringUtils.randomNumeric(4);
+
+            System.out.println("Los pins generados son: " + pin);
+
+            numero = pin;
+        }
+
+        return numero;
+    }
+
+    public static String contrasenaOchoDigitos(String numero) {
+
+        //Opcion 2---Pass con letras de 8 
+        for (int i = 0; i < 10; i++) {
+
+            String pass = RandomStringUtils.randomAlphabetic(8);
+
+            System.out.println("Las contraseñas generadas son : "+pass);
+            numero = pass;
+        }
+        return numero;
+    }
+
+    public static int contrasenaFuerte(int numero) {
+
+        char[] conjuntoCaracteres = {'a', 'z', 'b', 'y', 'Ç', 'u', '@', 'M', 'N', 'W'};
+        //Si quiero que salga 6 vee spoenmos la variable, si el count lo cambiamos a "i", sale de 1 caracter  hasta 6 en orden descendiente
+        numero = 6;
+        for (int i = 0; i < 10; i++) {
+            String password = RandomStringUtils.random(numero, conjuntoCaracteres);
+
+            System.out.println("Las contraseñas generadas son : " +password);
+        }
+
+        return numero;
+
+    }
+
 }
