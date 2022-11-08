@@ -23,4 +23,5 @@
         <maven.compiler.target>18</maven.compiler.target>
         <exec.mainClass>pablo.Tema4</exec.mainClass>
     </properties>
+    <name>Tema4LibreriasExternas</name>
 </project>
