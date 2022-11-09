@@ -113,13 +113,28 @@ public class usuariosYcontrasenas {
     }
 
     public static int contrasenaFuerte(int numero) {
-
+        
         char[] conjuntoCaracteres = {'a', 'z', 'b', 'y', 'Ç', 'u', '@', 'M', 'N', 'W'};
         //Si quiero que salga 6 vee spoenmos la variable, si el count lo cambiamos a "i", sale de 1 caracter  hasta 6 en orden descendiente
-        numero = 6;
-        for (int i = 0; i < 10; i++) {
+        do{
+        try{
+        String numeroString=JOptionPane.showInputDialog(null,"Cuantos caracteres quieres poner en la contraseña?");
+        numero=Integer.parseInt(numeroString);
+        //se una el NomberFormatException cuando se usa un JOption por su parse
+        }catch(NumberFormatException ime){
+            JOptionPane.showMessageDialog(null,"numero no valido"); 
+            
+        }
+        
+        }while(!(numero >=1 && numero <=10));
+        
+        
+        
+        for (int i = 0; i < 8; i++) {
             String password = RandomStringUtils.random(numero, conjuntoCaracteres);
-
+            
+         
+                //Parse del string a double
             System.out.println("Las contraseñas generadas son : " +password);
         }
 
