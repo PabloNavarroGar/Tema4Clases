@@ -90,6 +90,7 @@ public class Serie {
     }
         
     public  void darLike(){
+        //Se suma likes
         this.numeroLikes++;
         
     }    
