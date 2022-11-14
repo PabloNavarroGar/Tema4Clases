@@ -15,10 +15,11 @@ public class TestCajaCarton {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        //Declaracion de los objetos
+        CajaCarton cajaGrande = new CajaCarton(250, 400, 500, 200);
 
-        CajaCarton cajaGrande = new CajaCarton("250mm", "400mm", "500mm", "200gr");
-
-        CajaCarton cajaChica = new CajaCarton("25mm", "30mm", "15mm", "17gr");
+        CajaCarton cajaChica = new CajaCarton(25, 30, 15, 17);
         
         CajaCarton cajaGrande2;
 
@@ -29,7 +30,7 @@ public class TestCajaCarton {
         
         
         
-//        cajaGrande.setAncho("250mm");
+ //       cajaGrande.setAncho("250mm");
 //        cajaGrande.setAlto("400mm");
 //        cajaGrande.setLargo("500mm");
 //        cajaGrande.setPeso("200gr");
@@ -42,9 +43,9 @@ public class TestCajaCarton {
         //PARTE C 
         System.out.println("-----------------Caja Grande-------------------");
         
-        System.out.println("El ancho de la caja mide " + cajaGrande.getAncho());
+        System.out.println("El Ancho de la caja mide " +cajaGrande.getAncho());
 
-        System.out.println("El alto de la caja mide "+cajaGrande.getAlto());
+        System.out.println("El Alto de la caja mide "+cajaGrande.getAlto());
         
         System.out.println("El Largo de la caja mide "+cajaGrande.getLargo());
         
@@ -52,9 +53,9 @@ public class TestCajaCarton {
         
         System.out.println("-----------------Caja Pequeña-------------------");
         
-        System.out.println("El ancho de la caja mide " + cajaChica.getAncho());
+        System.out.println("El Ancho de la caja mide " + cajaChica.getAncho());
 
-        System.out.println("El alto de la caja mide "+cajaChica.getAlto());
+        System.out.println("El Alto de la caja mide "+cajaChica.getAlto());
         
         System.out.println("El Largo de la caja mide "+cajaChica.getLargo());
         
@@ -84,7 +85,7 @@ public class TestCajaCarton {
         System.out.println("El Peso de la caja mide "+cajaGrande2.getPeso());
         
         
-        
+        cajaChica.cerrar();
     }
 
 }

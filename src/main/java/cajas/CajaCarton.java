@@ -10,98 +10,86 @@ package cajas;
  */
 public class CajaCarton {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    
-        
-        
-    }
-    
-     private String ancho; 
-     private String alto; 
-     private String largo; 
-     private String  peso;
-     //Generacion de Gets, en encasulamiento para que se crrer una a una
-     //Parte B
-    public String getAncho() {
+    private double ancho;
+    private double alto;
+    private double largo;
+    private double peso;
+    //Generacion de Gets, en encasulamiento para que se crear una a una
+    //Parte B
+
+    public double getAncho() {
         return ancho;
     }
 
-    public String getAlto() {
+    public double getAlto() {
         return alto;
     }
 
-    public String getLargo() {
+    public double getLargo() {
         return largo;
     }
 
-    public String getPeso() {
+    public double getPeso() {
         return peso;
     }
     //declaracion de Sets
 
-    public void setAncho(String ancho) {
+    public void setAncho(double ancho) {
         this.ancho = ancho;
     }
 
-    public void setAlto(String alto) {
+    public void setAlto(double alto) {
         this.alto = alto;
     }
 
-    public void setLargo(String largo) {
+    public void setLargo(double largo) {
         this.largo = largo;
     }
 
-    public void setPeso(String peso) {
+    public void setPeso(double peso) {
         this.peso = peso;
     }
-    
-    
-    
+
     //Parte C
-
-    public CajaCarton(String ancho, String alto, String largo, String peso) {
+    public CajaCarton(double ancho, double alto, double largo, double peso) {
         this.ancho = ancho;
         this.alto = alto;
         this.largo = largo;
         this.peso = peso;
     }
+    //Nunca poner Static los metodos de las clases, solo cuando no se USEN con this
 
-  
-    
-    public static void abrir(){
-        
-        
+    public void abrir() {
+
     }
-    public static void cerrar(){
-        
-        
+
+    public void cerrar() {
+
     }
 
     public CajaCarton() {
     }
-    
+
     @Override
-    public String toString(){
-        
-        return "Caja: La anchura de la caja es  "+ancho
-                +" La altura de la caja es  "+alto
-                +" El largo de la caja es "+largo
-                +" El peso es de "+peso;
+    //Metodo sobreescritco,aquel que esta en una clase superior, 
+    //y estamos cambiando su comportamiento con un codigo diferente.
+    public String toString() {
+
+        return "Caja: La anchura de la caja es  " + ancho
+                + " La altura de la caja es  " + alto
+                + " El largo de la caja es " + largo
+                + " El peso es de " + peso;
     }
-    
-    
-    
+
+    //--Todo objeto tiene una identidad(Nombre),un estado(valores de los atritutos),
+    // y el comportamiento (Metodos)
+    //
 //    ¿Qué pasa si objeto se declara pero no se instancia?
-//     Que no va a poder tomar los atributos de la clase
+//     Que no va a poder reservarse en la memoria, y no podra usar los atributos de la clase.
+    //y saldra nullpointerException
 // ¿Qué es un alias? Implementa el ejemplo de la clase Vehiculo que hay en los apuntes (págs 14 y 15)
-//
+// Consiste en que en vez de generar un arhivo en memoria con las mismas caracteristicas de otro,
+    //se declaran como iguales ahorrando memoria.
 // ¿Para qué se utiliza el puntero ‘this’?
     //para indicar que los parametros y los atributos se llaman igual
-    
-    
-
 }
