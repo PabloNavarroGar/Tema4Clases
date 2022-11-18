@@ -22,7 +22,7 @@ public class programacionOrientadaObjetos {
        Scanner teclado = new Scanner(System.in);
        //Acceder a la clase poniendo su nombre
        //todo lo new es un objeto
-       vehiculo v1 = new vehiculo();
+       Vehiculo v1 = new Vehiculo();
        //v1 es una instancia del objeto vehiculo, creando v2, v3, se van creando
        //mas vehiculo 
        v1.matricula="12345YUT";
@@ -30,7 +30,7 @@ public class programacionOrientadaObjetos {
        
         System.out.println(" La matricula de v1 es "+v1.matricula);
         //Creacion de "ferrar" que es el nombre del nuevo objeto
-        vehiculo ferrari= new vehiculo();
+        Vehiculo ferrari= new Vehiculo();
         
         ferrari.matricula="54321TYU";
         ferrari.setColor("azul");
@@ -38,12 +38,12 @@ public class programacionOrientadaObjetos {
         System.out.println("El color del ferrari es "+ferrari.getColor());
         
         //escribiendo vehiulo y control espacio seleccionaos el contructos vehiculo
-        vehiculo mercedes  = new vehiculo("34567UT", "000001", 
+        Vehiculo mercedes  = new Vehiculo("34567UT", "000001", 
                 "Mercedes", "A1", "Plata", 80, true);
         
         System.out.println("Mercedes tarifa es: "+mercedes.tarifa);
         
-        vehiculo audi = new vehiculo("23456LKJ", "00002", "Blanco");
+        Vehiculo audi = new Vehiculo("23456LKJ", "00002", "Blanco");
         //Metodo del get 
         System.out.println("La matricula del audi es "+audi.getMatricula());
         
@@ -55,6 +55,17 @@ public class programacionOrientadaObjetos {
         System.out.println(mercedes.toString());
         
         
+        //copia por referencia
+        
+        Vehiculo copiaMercedes= new Vehiculo(mercedes);
+        
+        System.out.println("-----------------------");
+        System.out.println(mercedes);
+        System.out.println(copiaMercedes);
+        
+        //Copia con el metodo copiar
+        Vehiculo mercedes2= new Vehiculo(mercedes);
+        System.out.println(mercedes2);
     }
     
     

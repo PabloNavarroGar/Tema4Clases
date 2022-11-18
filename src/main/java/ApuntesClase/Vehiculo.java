@@ -9,7 +9,7 @@ package ApuntesClase;
  * @author pablo
  */
 //definicion de la clase vehiculo
-public class vehiculo {
+public class Vehiculo {
 
     //atributos de mi clase
     String matricula;
@@ -23,7 +23,7 @@ public class vehiculo {
     //DENTRO DE la clase se hacen los constructores con SU MISMO NOMBRE
     //constructores
     //haciendo click derecho//INSERT CODE// GENERATE, LE DAMOS A CONSTRUCTOR GRACIAS NACHO.
-    public vehiculo(String matricula, String bastidor, String marca,
+    public Vehiculo(String matricula, String bastidor, String marca,
             String modelo, String color, double tarifa, boolean disponible) {
         //ROSA CON ROSA NO PUEDE, TIENE QUE SER ROSA CON NEGRO
         // TIENE QUE TENER EL MISMO NOMBRE QUE LA CLASE PUBLICA
@@ -39,10 +39,10 @@ public class vehiculo {
     }
 
     //Para que se solucione que el otro "vehiculo" lo reconozca crear un construtor vacio.
-    public vehiculo() {
+    public Vehiculo() {
     }
 
-    public vehiculo(String matricula, String bastidor, String color) {
+    public Vehiculo(String matricula, String bastidor, String color) {
         this.matricula = matricula;
         this.bastidor = bastidor;
         this.color = color;
@@ -85,8 +85,29 @@ public class vehiculo {
                 + ", disponible=" 
                 + disponible + '}';
     }
+    //copia de un vehiculo
+   public Vehiculo(Vehiculo origen){
+       this.bastidor= origen.bastidor;
+       this.color= origen.color;
+       this.disponible=origen.disponible;
+       this.marca=origen.marca;
+       this.modelo=origen.modelo;
+       this.tarifa=origen.tarifa;
+       this.matricula=origen.matricula;
+   }
 
-   
-
+    public Vehiculo copiar(){
+        Vehiculo aux= new Vehiculo(matricula, bastidor, marca, modelo, color, tarifa, disponible);
+        return aux;
+    }
     
+    
+    public static Vehiculo copiar(Vehiculo origen){
+        Vehiculo aux= new Vehiculo(origen.matricula, 
+                origen.bastidor,origen. marca,
+                origen.modelo,origen.color,
+                origen.tarifa, origen.disponible);
+        return aux;
+        
+    }
 }
