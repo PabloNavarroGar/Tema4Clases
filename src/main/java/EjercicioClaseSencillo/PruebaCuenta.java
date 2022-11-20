@@ -16,11 +16,27 @@ public class PruebaCuenta {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Cuenta c1 = new Cuenta("","", "Gustavo", 100, 1);
-        
+        Cuenta c1 = new Cuenta( "Gustavo", 100, 1);
+       
         //System.out.println(c1.nif);
         System.out.println(c1.toString());
         
+        //LLegar a la clase de Calculos Cuenta
+//        Cuenta c2 =CalculosCuenta.leerCuentaTeclado();
+//        
+//        System.out.println(c2.toString());
+        
+        
+        
+        
+        Cuenta c3 = new Cuenta("Samu", 0, 0.1);
+        
+        System.out.println(c3);
+        
+        System.out.println("Tu saldo es "+c3.getSaldo());
+        c3.ingresarDinero(c3, 500);
+        c3.retirarEfectivo(c3,600);
+       
     }
     
 }

@@ -4,6 +4,7 @@
  */
 package EjercicioClaseSencillo;
 
+import static EjercicioClaseSencillo.CalculosCuenta.teclado;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
@@ -29,13 +30,14 @@ public class Cuenta {
     String cuenta;
     String nif;
     private String nombreCliente;
-    private double saldo;
-    private double interes;
+    double saldo;
+    double interes;
+    
 
     public Cuenta() {
     }
 
-    public Cuenta(String cuenta, String nif, String nombreCliente, double saldo, double interes) {
+    public Cuenta( String nombreCliente, double saldo, double interes) {
         this.cuenta = generarCuenta();
         this.nif = generarNIF();
         this.nombreCliente = nombreCliente;
@@ -47,11 +49,11 @@ public class Cuenta {
         this.interes = interes;
 
     }
-
+    
     private static String generarNIF() {
         //Declaramos los char de las letras
 
-        //Generamos una char poniendo en orden als letras
+        //Generamos una char poniendo en orden las letras
         char[] letras = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
         //Usamos las dependecias lag para seleccionar la funcion del  random con 8 digittos
         String nif = RandomStringUtils.randomNumeric(8);
@@ -111,5 +113,36 @@ public class Cuenta {
     public String toString() {
         return "Cuenta{" + "cuenta=" + cuenta + ", nif=" + nif + ", nombreCliente=" + nombreCliente + ", saldo=" + saldo + ", interes=" + interes + '}';
     }
+    
+     public void ingresarDinero(Cuenta cuenta, double cantidad) {
+//        this.saldo = cuenta.getSaldo();
+//        System.out.println("¿Cuanta cantidad quieres ingresar?");
+//
+//        cantidad = teclado.nextDouble();
 
+        this.saldo += cantidad;
+        System.out.println("tu saldo era de " + this.saldo + " has ingreado " + cantidad);
+    }
+
+    public void retirarEfectivo(Cuenta cuenta, double cantidad) {
+
+//         this.saldo = cuenta.getSaldo();
+//        System.out.println("¿Cuanta cantidad quieres retirar?, tienes ");
+//
+//        cantidad = teclado.nextDouble();
+
+        if(cantidad > this.saldo ){
+            
+            System.out.println("Saldo Infucicuente");
+        }
+        else if(this.saldo >cantidad || cantidad==this.saldo){
+             this.saldo -= cantidad;
+          
+        System.out.println("has sacado " + cantidad + " tu saldo actual es de " + this.saldo);
+        }
+        
+    }
+
+   
+  
 }
