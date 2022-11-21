@@ -32,11 +32,16 @@ public class PruebaCuenta {
         Cuenta c3 = new Cuenta("Samu", 0, 0.1);
         
         System.out.println(c3);
+        System.out.println("El saldo actual de la cuenta es de "+c3.getSaldo());
+        CalculosCuenta.ingresarDinero(c3, 200);
         
-        System.out.println("Tu saldo es "+c3.getSaldo());
-        c3.ingresarDinero(c3, 500);
-        c3.retirarEfectivo(c3,600);
-       
+        
+        System.out.println("El saldo actual de la cuenta es de "+c3.getSaldo());
+        
+        CalculosCuenta.retirarDinero(c3, 100);
+        
+        System.out.println("El sa.do actual de la cuenta es de "+c3.getSaldo());
+      
     }
     
 }

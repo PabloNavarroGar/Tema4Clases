@@ -4,7 +4,7 @@
  */
 package EjercicioClaseSencillo;
 
-import static EjercicioClaseSencillo.CalculosCuenta.teclado;
+
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
@@ -32,12 +32,11 @@ public class Cuenta {
     private String nombreCliente;
     double saldo;
     double interes;
-    
 
     public Cuenta() {
     }
 
-    public Cuenta( String nombreCliente, double saldo, double interes) {
+    public Cuenta(String nombreCliente, double saldo, double interes) {
         this.cuenta = generarCuenta();
         this.nif = generarNIF();
         this.nombreCliente = nombreCliente;
@@ -49,7 +48,7 @@ public class Cuenta {
         this.interes = interes;
 
     }
-    
+
     private static String generarNIF() {
         //Declaramos los char de las letras
 
@@ -73,8 +72,8 @@ public class Cuenta {
         return nif + letras[numeroLetra];
     }
 
-    //GENERAR UN NUMERO DE CUENTA ALEATORIO
-    private static String generarCuenta() {
+    //GENERAR UN NUMERO DE CUENTA ALEATORIO, Privado ya que solo se va a usar en esta clase
+    private  String generarCuenta() {
         String cuenta = RandomStringUtils.randomNumeric(20);
 
         return cuenta;
@@ -114,35 +113,8 @@ public class Cuenta {
         return "Cuenta{" + "cuenta=" + cuenta + ", nif=" + nif + ", nombreCliente=" + nombreCliente + ", saldo=" + saldo + ", interes=" + interes + '}';
     }
     
-     public void ingresarDinero(Cuenta cuenta, double cantidad) {
-//        this.saldo = cuenta.getSaldo();
-//        System.out.println("¿Cuanta cantidad quieres ingresar?");
-//
-//        cantidad = teclado.nextDouble();
-
-        this.saldo += cantidad;
-        System.out.println("tu saldo era de " + this.saldo + " has ingreado " + cantidad);
-    }
-
-    public void retirarEfectivo(Cuenta cuenta, double cantidad) {
-
-//         this.saldo = cuenta.getSaldo();
-//        System.out.println("¿Cuanta cantidad quieres retirar?, tienes ");
-//
-//        cantidad = teclado.nextDouble();
-
-        if(cantidad > this.saldo ){
-            
-            System.out.println("Saldo Infucicuente");
-        }
-        else if(this.saldo >cantidad || cantidad==this.saldo){
-             this.saldo -= cantidad;
-          
-        System.out.println("has sacado " + cantidad + " tu saldo actual es de " + this.saldo);
-        }
-        
-    }
-
    
-  
+
+
+
 }

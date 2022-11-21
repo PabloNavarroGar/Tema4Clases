@@ -23,102 +23,45 @@ public class CalculosCuenta {
 // IngresarDinero(Cuenta cuenta,double cantidad)
 // retirarEfectivo(Cuenta cuenta, double cantidad)Hay que tener en cuenta que no se puede retirar
 //mas saldo del que dispones
-    //crear el objeto cuenta a traves dela clase Cuenta
-    public static Cuenta leerCuentaTeclado() {
-        //Creo objeto del tipo cienta
-        Cuenta cuenta;
+    //Usar setSaldo, y en sus parentesis hacer la operacion, hay que ser unos SETS,
+    //cuando nos piden que hagamos cosas en los metodos de una clase.
+    public static void darInteres(Cuenta cuenta) {
 
-        //numero de cuenta
-        //Se genera automatico en en el constructor, se le quita en Perona.constructor
-        //EL DNI LO MISMO
-        //metodo pedir Interes
-        //Pedir nombre cliente
-        System.out.println("Como se llama la persona");
+        cuenta.setSaldo(cuenta.getSaldo() + cuenta.getSaldo() * cuenta.getInteres());
 
-        String nombrePersona = teclado.nextLine();
-        //Metodo pedir Saldo
-        double pedirSaldo = saldoCuenta();
-        //Metodo pedir Interes
-        double pedirInteres = darInteres();
-
-        cuenta = new Cuenta(nombrePersona, pedirSaldo, pedirInteres);
-
-        return cuenta;
     }
 
-    public static double darInteres() {
-
-        double interes = 0;
-
-        do {
-            try {
-
-                System.out.println("Introduzca el Interes de la cuenta (0.1% a 3%)");
-
-                interes = teclado.nextDouble();
-
-            } catch (InputMismatchException ime) {
-                System.out.println("Dato Invalido,vuelva a introducirlo");
-                teclado.nextLine();
-            }
-        } while (!(interes >= 0.1 && interes <= 3));
-        return interes;
+    public static void ingresarDinero(Cuenta cuenta, double cantidad) {
+        //Math.abs devuelveun valor absoluto, muy necesario en operaciones bancarias
+        cantidad = Math.abs(cantidad);
+        cuenta.setSaldo(cuenta.getSaldo() + cantidad);
     }
 
-    //INTRODUCIR UN NUMERO POR CONSOLA 
-    public static double saldoCuenta() {
+    public static void retirarDinero(Cuenta cuenta, double cantidad) {
+        cantidad = Math.abs(cantidad);
 
-        // si se crea el teclado ya en el objeto se elimina
-        double saldo = 0;
+        if (cuenta.getSaldo() < cantidad) {
 
-        try {
+        } else {
+            //Hay que poner el resto de la cantida en este sitio
+            cuenta.setSaldo(cuenta.getSaldo() - cantidad);
 
-            System.out.println("Introduzca el saldo que empieza la cuenta");
-
-            saldo = teclado.nextDouble();
-
-            
-
-        } catch (InputMismatchException ime) {
-            System.out.println("Dato Invalido,vuelva a introducirlo");
-            teclado.nextLine();
         }
 
-        return saldo;
     }
 
-    public void ingresarDinero(Cuenta cuenta, double cantidad) {
-        double saldo = cuenta.getSaldo();
-        System.out.println("¿Cuanta cantidad quieres ingresar?");
+    //Otra forma de hacer el control de X cantidad, se puede hacer en un static boolean
+    // con 2 return
+    public static boolean retirarDinero2(Cuenta cuenta, double cantidad) {
+        cantidad = Math.abs(cantidad);
 
-        cantidad = teclado.nextDouble();
+        if (cuenta.getSaldo() < cantidad) {
+            return false;
+        } else {
+            //Hay que poner el resto de la cantida en este sitio
+            cuenta.setSaldo(cuenta.getSaldo() - cantidad);
 
-        saldo += cantidad;
-        System.out.println("tu saldo era de " + saldo + " has ingreado " + cantidad);
+        }
+        return true;
     }
-
-    public void retirarEfectivo(Cuenta cuenta, double cantidad) {
-
-        double saldo = cuenta.getSaldo();
-        System.out.println("¿Cuanta cantidad quieres retirar?, tienes ");
-
-        cantidad = teclado.nextDouble();
-
-        saldo -= cantidad;
-
-        System.out.println("has sacado " + cantidad + " tu saldo actual es de " + saldo);
-    }
-
-    public void consultarSaldo(Cuenta cuenta) {
-
-        System.out.println("Saldo ="
-                + cuenta.getSaldo());
-    }
-
-//    public static double filtradoSaldoInteres(double saldo,double interes) {
-//        
-//         double saldoFinal= saldoCuenta()+(saldoCuenta()*darInteres());
-//        return saldoFinal;
-//    }
-
 }
