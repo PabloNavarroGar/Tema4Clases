@@ -9,7 +9,8 @@ package ApuntesEnumYrecordClass;
  * @author samue
  */
 public class Persona {
-    
+    //No tiene getter ni setter, ni metodos para cambiar, es FInal, no se puede cambiar y lo que se escriba 
+    //se quedara tal cual
     public record  PersonaDTO (String nombre,String apellidos,int edad){}
     
 }
