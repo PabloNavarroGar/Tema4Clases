@@ -1,5 +1,7 @@
 package ApuntesClase;
 
+import java.util.Objects;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -110,4 +112,46 @@ public class Vehiculo {
         return aux;
         
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + Objects.hashCode(this.matricula);
+        hash = 43 * hash + Objects.hashCode(this.bastidor);
+        hash = 43 * hash + Objects.hashCode(this.marca);
+        hash = 43 * hash + Objects.hashCode(this.modelo);
+        hash = 43 * hash + Objects.hashCode(this.color);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vehiculo other = (Vehiculo) obj;
+        if (!Objects.equals(this.matricula, other.matricula)) {
+            return false;
+        }
+        if (!Objects.equals(this.bastidor, other.bastidor)) {
+            return false;
+        }
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        return Objects.equals(this.color, other.color);
+    }
+    
+    
+    
+    
 }

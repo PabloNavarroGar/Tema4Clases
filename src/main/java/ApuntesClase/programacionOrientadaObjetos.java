@@ -66,7 +66,18 @@ public class programacionOrientadaObjetos {
         //Copia con el metodo copiar
         Vehiculo mercedes2= new Vehiculo(mercedes);
         System.out.println(mercedes2);
-    }
+        
+        
+        System.out.println("===========HASHCODES============");
+        System.out.println("---------------------------------");
+        System.out.println(" El vehiculo mercedes tiene el hascode " +mercedes.hashCode());
+        System.out.println(" El vehiculo mercedes2 tiene el hascode " +mercedes2.hashCode());
+        System.out.println("El audi tiene el hashcode " +audi.hashCode());
+        System.out.println("El ferrari tiene el hashcode "+ferrari.hashCode());
+        System.out.println(" ¿Son iguales los vehiculos merceces y ferrari? " +mercedes.equals(ferrari));
+        System.out.println(" ¿Son iguales los vehiculos merceces 1 y 2? " +mercedes.equals(mercedes2));
+        System.out.println("¿Son iguales los vehiculos audi y ferrari? " +ferrari.equals(audi));
+    }   
     
     
 }
